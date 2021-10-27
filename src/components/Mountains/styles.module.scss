@@ -1,0 +1,38 @@
+.main {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--blue-700);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  div {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--yellow-200);
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 90px;
+      left: 67px;
+      transform: rotate(45deg);
+
+      width: 150px;
+      aspect-ratio: 1; // Altura torna-se igual à largura
+      background: var(--orange-700);
+
+      // offset-x negativo sobe para a diagonal esquerda
+      // offset-y negativo sobe para a diagonal direita
+      // e vice-versa
+      box-shadow: -30px 128px var(--orange-700);
+    }
+  }
+}

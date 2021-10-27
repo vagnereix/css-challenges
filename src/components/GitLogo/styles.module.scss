@@ -1,0 +1,93 @@
+.main {
+  position: relative;
+  
+  width: 100%;
+  height: 100%;
+  background-color: rgb(26, 26, 26);
+  display: grid;
+  place-items: center;
+
+  .git {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 1.2rem;
+    background-color: var(--orange-900);
+
+    transform: rotate(45deg);
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      aspect-ratio: 1;
+      background: inherit;
+
+      border-radius: 1.2rem;
+    }
+    &::before {
+      animation: pulse 3s ease-out infinite;
+    }
+    &::after {
+      animation: pulse 3s 1.5s ease-out infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(2.5);
+        opacity: 0;
+      }
+    }
+  }
+
+  .firstLine {
+    position: absolute;
+    top: 40px;
+    width: 110px;
+    height: 12px;
+    background-color: #FFF;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: -8px;
+
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #FFF;
+    }
+
+    &::after {
+      left: 90px;
+    }
+  }
+
+  .secondLine {
+    position: absolute;
+    top: 70px;
+    left: 30px;
+    width: 90px;
+    height: 12px;
+    background-color: #FFF;
+
+    transform: rotate(45deg);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 70px;
+      top: -8px;
+
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #FFF;
+    }
+  }
+}

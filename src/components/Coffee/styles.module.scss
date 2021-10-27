@@ -1,0 +1,121 @@
+.main {
+  position: relative;
+  
+  width: 100%;
+  height: 100%;
+  background-color: var(--gray-900);
+  display: grid;
+  place-items: center;
+
+  .cup {
+    position: relative;
+    width: 280px;
+    height: 220px;
+    background: linear-gradient(to right, #F9F9F9, #D9D9D9);
+    border-radius: 0 0 45% 45%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(to right, #F9F9F9, #D9D9D9);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      right: -50px;
+      width: 120px;
+      height: 125px;
+      border: 25px solid #DCDCDC;
+      border-left: 25px solid transparent;
+      border-bottom: 25px solid transparent;
+      border-radius: 50%;
+      transform: rotate(42deg);
+    }
+  }
+
+  .coffee {
+    position: absolute;
+    overflow: hidden;
+    top: -25px;
+    left: 10px;
+    height: 50px;
+    border-radius: 50%;
+    width: calc(100% - 20px);
+    background: linear-gradient(to left, #F9F9F9, #D9D9D9);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 0;
+      height: 50px;
+      border-radius: 50%;
+      width: 100%;
+      background: linear-gradient(to left, #74554b, #613829);
+    }
+  }
+
+  .plate {
+    position: absolute;
+    bottom: 125px;
+    width: 500px;
+    height: 160px;
+    border-radius: 50%;
+    box-shadow: 0 35px 35px rgba(0, 0, 0, .2);
+    background: linear-gradient(to right, #F9F9F9, #E7E7E7);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      border-radius: 50%;
+      background: linear-gradient(to left, #F9F9F9, #E7E7E7);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      border-radius: 50%;
+      background: radial-gradient(rgba(0, 0, 0, .2) 25%, transparent, transparent);
+    }
+  }
+
+  .vapour {
+    position: absolute;
+    padding: 0 20px;
+    display: flex;
+    z-index: 1;
+
+    span {
+      position: relative;
+      bottom: 100px;
+      display: block;
+      margin: 0 2px 50px;
+      min-width: 8px;
+      height: 120px;
+      background: #FFF;
+      border-radius: 50%;
+
+      opacity: 0;
+      filter: blur(8px);
+      animation: animate 3s linear infinite;
+      animation-delay: calc(var(--i) * -.5s);
+    }
+
+    @keyframes animate {
+      0% { transform: translateY(0) scaleX(1) }
+      15% { opacity: 1; }
+      50% { transform: translateY(-80px) scaleX(5) }
+      95% { opacity: 0; }
+      100% { transform: translateY(-150px) scaleX(10) }
+    }
+  }
+}
